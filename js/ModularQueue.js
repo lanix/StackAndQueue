@@ -1,13 +1,6 @@
 var ModularQueue = function(){
 	var first = null;
 
-	function queueElement(Content, NextElement){
-		return {
-			content: Content,
-			next: NextElement
-		};
-	};
-
 	return {
 		Dequeue: function(){
 			if(first != null){
@@ -23,7 +16,7 @@ var ModularQueue = function(){
 		},
 		Enqueue: function(Content){
 			if(first == null){
-				first = queueElement(Content, null);
+				first = { content: Content, next : null };
 				return first.content;
 			}
 			else{
@@ -31,7 +24,7 @@ var ModularQueue = function(){
 				while(nextElement.next != null){
 					nextElement = nextElement.next;
 				}
-				nextElement.next = queueElement(Content, null);
+				nextElement.next = { content: Content, next : null };
 				return nextElement.next.content;
 			}
 		},

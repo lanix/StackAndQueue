@@ -2,11 +2,6 @@ var Queue = function(){
 
 	this.first  = null;
 
-	var queueElement = function(Content, NextElement) {
-		this.content = Content;
-		this.next = NextElement;
-	};
-
 	this.Dequeue = function(){
 
 		if(this.first != null){
@@ -23,7 +18,7 @@ var Queue = function(){
 	this.Enqueue = function(Content) {
 		
 		if(this.first == null){
-			this.first = new queueElement(Content, null);
+			this.first =  { content: Content, next : null };
 			return this.first.content;
 		}
 		else{
@@ -34,7 +29,7 @@ var Queue = function(){
 				nextElement = nextElement.next;
 			}
 
-			nextElement.next = new queueElement(Content, null);
+			nextElement.next =  { content: Content, next : null };
 			return nextElement.next.content;
 		}		
 	};

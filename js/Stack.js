@@ -2,18 +2,13 @@ var Stack = function(){
 
 	this.last  = null;
 
-	var stackElement = function(Content, NextElement) {
-		this.content = Content;
-		this.next = NextElement;
-	};
-
 	this.Pop = function(){
 		var val = this.last;
 		if(this.last == null){
 			throw "Stack is empty";
 		}
 		else{
-			this.last = this.last.next;
+			this.last = this.last.previous;
 		}
 
 		return val.content;
@@ -22,7 +17,7 @@ var Stack = function(){
 
 	this.Push = function(Content) {
 		
-		this.last = new stackElement(Content, this.last);
+		this.last = { content: Content, previous: this.last };
 
 		return this.last.content;
 	};
@@ -35,7 +30,7 @@ var Stack = function(){
 
 		while(currentElement != null){
 			result[index] = currentElement.content;
-			currentElement = currentElement.next;
+			currentElement = currentElement.previous;
 			index++;
 		}
 
