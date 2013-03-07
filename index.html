@@ -1,59 +1,59 @@
 <html>
-	<head>
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="js/Stack.js" type="text/javascript"></script>
-		<script src="js/Queue.js" type="text/javascript"></script>
-		<script src="js/ModularStack.js" type="text/javascript"></script>
-		<script src="js/ModularQueue.js" type="text/javascript"></script>
-		<script src="js/UIManager.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			var myStack = new Stack();
-			var myQueue = new Queue();
-			var myModularStack = ModularStack();
-			var myModularQueue = ModularQueue();
-			var myUIManager = new UIManager();
-		</script>
-	</head>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="js/Stack.js" type="text/javascript"></script>
+        <script src="js/Queue.js" type="text/javascript"></script>
+        <script src="js/ModularStack.js" type="text/javascript"></script>
+        <script src="js/ModularQueue.js" type="text/javascript"></script>
+        <script src="js/UIManager.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var myStack = new Stack();
+            var myQueue = new Queue();
+            var myModularStack = ModularStack();
+            var myModularQueue = ModularQueue();
+            var myUIManager = new UIManager();
+        </script>
+    </head>
 
-	<body>
-		<div style="width:600px">
-			<div style="float:left">
-				<h1>Constructor Pattern</h1>
+    <body>
+        <div style="width:600px">
+            <div style="float:left">
+                <h1>Constructor Pattern</h1>
 
-				<div id="stack" style="float:left; background-color:#aaaaaa">
-					<h2>Stack</h2>
-					<input type="text" id='content'></input>
-					<input type="button" id="push" value="Push" onclick="myUIManager.callPush();"></input>
-					<input type="button" id="pop" value="Pop" onclick="myUIManager.callPop();"></input>
-					<ul id="list"></ul>
-				</div>
-				<div id="queue" style="float:left; background-color:#666666">
-					<h2>Queue</h2>
-					<input type="text" id='content2'></input>
-					<input type="button" id="push2" value="Queue" onclick="myUIManager.callEnqueue();"></input>
-					<input type="button" id="pop2" value="Dequeue" onclick="myUIManager.callDequeue();"></input>
-					<ul id="list2"></ul>
-				</div>
-			</div>
-			<br>
-			<div style="float:left">
-				<h1>Module Pattern</h1>
+                <div id="stack" style="float:left; background-color:#aaaaaa">
+                    <h2>Stack</h2>
+                    <input type="text" id='content'></input>
+                    <input type="button" id="push" value="Push" onclick="myUIManager.callPush();"></input>
+                    <input type="button" id="pop" value="Pop" onclick="myUIManager.callPop();"></input>
+                    <ul id="list"></ul>
+                </div>
+                <div id="queue" style="float:left; background-color:#666666">
+                    <h2>Queue</h2>
+                    <input type="text" id='content2'></input>
+                    <input type="button" id="push2" value="Queue" onclick="myUIManager.callEnqueue();"></input>
+                    <input type="button" id="pop2" value="Dequeue" onclick="myUIManager.callDequeue();"></input>
+                    <ul id="list2"></ul>
+                </div>
+            </div>
+            <br>
+            <div style="float:left">
+                <h1>Module Pattern</h1>
 
-				<div id="moduleStack" style="float:left; background-color:#aaaaaa">
-					<h2>Stack</h2>
-					<input type="text" id='moduleContent'></input>
-					<input type="button" id="modulePush" value="Push" onclick="myUIManager.callModulePush();"></input>
-					<input type="button" id="modulePop" value="Pop" onclick="myUIManager.callModulePop();"></input>
-					<ul id="moduleList"></ul>
-				</div>
-				<div id="queue" style="float:left; background-color:#666666">
-					<h2>Queue</h2>
-					<input type="text" id='moduleContent2'></input>
-					<input type="button" id="modulePush2" value="Queue" onclick="myUIManager.callModuleEnqueue();"></input>
-					<input type="button" id="modulePop2" value="Dequeue" onclick="myUIManager.callModuleDequeue();"></input>
-					<ul id="moduleList2"></ul>
-				</div>
-			</div>
-		</div>
-	</body>
+                <div id="moduleStack" style="float:left; background-color:#aaaaaa">
+                    <h2>Stack</h2>
+                    <input type="text" id='moduleContent'></input>
+                    <input type="button" id="modulePush" value="Push" onclick="myUIManager.callModulePush();"></input>
+                    <input type="button" id="modulePop" value="Pop" onclick="myUIManager.callModulePop();"></input>
+                    <ul id="moduleList"></ul>
+                </div>
+                <div id="queue" style="float:left; background-color:#666666">
+                    <h2>Queue</h2>
+                    <input type="text" id='moduleContent2'></input>
+                    <input type="button" id="modulePush2" value="Queue" onclick="myUIManager.callModuleEnqueue();"></input>
+                    <input type="button" id="modulePop2" value="Dequeue" onclick="myUIManager.callModuleDequeue();"></input>
+                    <ul id="moduleList2"></ul>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

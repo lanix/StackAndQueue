@@ -1,43 +1,43 @@
 var ModularStack =  function() {
 
-	var last = null;
+    var last = null;
 
-	function stackElement(Content, NextElement) {
-		return {
-			content: Content,
-			next : NextElement
-		}
-	};
+    function stackElement(Content, NextElement) {
+        return {
+            content: Content,
+            next : NextElement
+        }
+    };
 
-	return {
+    return {
 
-		Push : function(Content){
-			last = stackElement(Content, last);
-			return last.content;
-		},
-		Pop : function(){
-			var val = last;
-			if(last == null){
-				throw "Stack is empty";
-			}
-			else {
-				last = last.next;
-			}
+        Push : function(Content){
+            last = stackElement(Content, last);
+            return last.content;
+        },
+        Pop : function(){
+            var val = last;
+            if(last == null){
+                throw "Stack is empty";
+            }
+            else {
+                last = last.next;
+            }
 
-			return val.content;
-		},
-		Content : function(){
-			var result = [];
-			var currentElement = last;
-			var index = 0
+            return val.content;
+        },
+        Content : function(){
+            var result = [];
+            var currentElement = last;
+            var index = 0
 
-			while(currentElement != null){
-				result[index] = currentElement.content;
-				currentElement = currentElement.next;
-				index++;
-			}
+            while(currentElement != null){
+                result[index] = currentElement.content;
+                currentElement = currentElement.next;
+                index++;
+            }
 
-			return result;
-		}
-	};
+            return result;
+        }
+    };
 };
