@@ -97,6 +97,54 @@ var UIManager = function(){
             $('#moduleList2').append('<li>' + itemList[i] + '</li>');
         }
     };
+        // Prototypal Pattern
+
+    this.callPrototypalPush = function() {
+        var $val = $('#prototypalContent').val();
+        console.log('Stack Item Added: ' + myPrototypalStack.Push($val));
+        $('#prototypalList').empty();
+
+        var itemList = myPrototypalStack.Content();
+        for(var i = 0; i < itemList.length; i++){
+            $('#prototypalList').append('<li>' + itemList[i] + '</li>');
+        }
+
+        $('#prototypalContent').focus().select();
+    };
+
+    this.callPrototypalPop = function(){
+        console.log('Stack Item Deleted: ' + myPrototypalStack.Pop());
+        
+        $('#prototypalList').empty();
+        var itemList = myPrototypalStack.Content();
+
+        for(var i = 0; i < itemList.length; i++){
+            $('#prototypalList').append('<li>' + itemList[i] + '</li>');
+        }
+    };
+
+    this.callPrototypalEnqueue = function() {
+        var $val = $('#prototypalContent2').val();
+        console.log('Queue Item Added: ' + myPrototypalQueue.Enqueue($val));
+        $('#prototypalList2').empty();
+
+        var itemList = myPrototypalQueue.Content();
+        for(var i = 0; i < itemList.length; i++){
+            $('#prototypalList2').append('<li>' + itemList[i] + '</li>');
+        }
+        $('#prototypalContent2').focus().select();
+    };
+
+    this.callPrototypalDequeue = function(){
+        console.log('Queue Item Deleted: ' + myPrototypalQueue.Dequeue());
+        
+        $('#prototypalList2').empty();
+        var itemList = myPrototypalQueue.Content();
+
+        for(var i = 0; i < itemList.length; i++){
+            $('#prototypalList2').append('<li>' + itemList[i] + '</li>');
+        }
+    };
 }
 
 

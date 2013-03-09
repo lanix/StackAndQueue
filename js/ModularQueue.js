@@ -5,7 +5,6 @@ var ModularQueue = function(){
         Dequeue: function(){
             if(first != null){
                 var val = first;
-
                 first = first.next;
             }
             else{

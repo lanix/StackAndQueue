@@ -1,40 +1,31 @@
-var Queue = function(){
-
-    this.first  = null;
-
-    this.Dequeue = function(){
-
+var PrototypalQueue = {
+    first: null,
+    Dequeue: function(){
         if(this.first != null){
             var val = this.first;
             this.first = this.first.next;
         }
         else{
-            throw "Queue is emtpy"
+            throw "Queue is empty";
         }
-        return val.content;
-    };
 
-    this.Enqueue = function(Content) {
-        
+        return val.content;
+    },
+    Enqueue: function(Content){
         if(this.first == null){
-            this.first =  { content: Content, next : null };
+            this.first = { content: Content, next : null };
             return this.first.content;
         }
         else{
-            
             var nextElement = this.first;
-            
-            while(nextElement.next != null){    
+            while(nextElement.next != null){
                 nextElement = nextElement.next;
             }
-
-            nextElement.next =  { content: Content, next : null };
+            nextElement.next = { content: Content, next : null };
             return nextElement.next.content;
-        }       
-    };
-
-    this.Content = function(){
-
+        }
+    },
+    Content: function(){
         var result = [];
         var currentElement = this.first;
         var index = 0;
@@ -46,5 +37,5 @@ var Queue = function(){
         }
 
         return result;
-    };
+    }
 };

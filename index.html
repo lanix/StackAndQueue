@@ -5,6 +5,8 @@
         <script src="js/Queue.js" type="text/javascript"></script>
         <script src="js/ModularStack.js" type="text/javascript"></script>
         <script src="js/ModularQueue.js" type="text/javascript"></script>
+        <script src="js/PrototypalStack.js" type="text/javascript"></script>
+        <script src="js/PrototypalQueue.js" type="text/javascript"></script>
         <script src="js/UIManager.js" type="text/javascript"></script>
         <script type="text/javascript">
             var myStack = new Stack();
@@ -12,6 +14,8 @@
             var myModularStack = ModularStack();
             var myModularQueue = ModularQueue();
             var myUIManager = new UIManager();
+            var myPrototypalStack = Object.create(PrototypalStack);
+            var myPrototypalQueue = Object.create(PrototypalQueue);
         </script>
     </head>
 
@@ -46,12 +50,32 @@
                     <input type="button" id="modulePop" value="Pop" onclick="myUIManager.callModulePop();"></input>
                     <ul id="moduleList"></ul>
                 </div>
-                <div id="queue" style="float:left; background-color:#666666">
+                <div id="moduleQueue" style="float:left; background-color:#666666">
                     <h2>Queue</h2>
                     <input type="text" id='moduleContent2'></input>
                     <input type="button" id="modulePush2" value="Queue" onclick="myUIManager.callModuleEnqueue();"></input>
                     <input type="button" id="modulePop2" value="Dequeue" onclick="myUIManager.callModuleDequeue();"></input>
                     <ul id="moduleList2"></ul>
+                </div>
+            </div>
+
+            <br>
+            <div style="float:left">
+                <h1>Prototypal Pattern</h1>
+
+                <div id="prototypalStack" style="float:left; background-color:#aaaaaa">
+                    <h2>Stack</h2>
+                    <input type="text" id='prototypalContent'></input>
+                    <input type="button" id="prototypalPush" value="Push" onclick="myUIManager.callPrototypalPush();"></input>
+                    <input type="button" id="prototypalPop" value="Pop" onclick="myUIManager.callPrototypalPop();"></input>
+                    <ul id="prototypalList"></ul>
+                </div>
+                <div id="prototypalQueue" style="float:left; background-color:#666666">
+                    <h2>Queue</h2>
+                    <input type="text" id='prototypalContent2'></input>
+                    <input type="button" id="prototypalPush2" value="Queue" onclick="myUIManager.callPrototypalEnqueue();"></input>
+                    <input type="button" id="prototypalPop2" value="Dequeue" onclick="myUIManager.callPrototypalDequeue();"></input>
+                    <ul id="prototypalList2"></ul>
                 </div>
             </div>
         </div>
