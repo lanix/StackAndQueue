@@ -2,17 +2,10 @@ var ModularStack =  function() {
 
     var last = null;
 
-    function stackElement(Content, NextElement) {
-        return {
-            content: Content,
-            next : NextElement
-        }
-    };
-
     return {
 
         Push : function(Content){
-            last = stackElement(Content, last);
+            last = {content: Content, previous:last };
             return last.content;
         },
         Pop : function(){
@@ -21,7 +14,7 @@ var ModularStack =  function() {
                 throw "Stack is empty";
             }
             else {
-                last = last.next;
+                last = last.previous;
             }
 
             return val.content;
@@ -33,7 +26,7 @@ var ModularStack =  function() {
 
             while(currentElement != null){
                 result[index] = currentElement.content;
-                currentElement = currentElement.next;
+                currentElement = currentElement.previous;
                 index++;
             }
 
