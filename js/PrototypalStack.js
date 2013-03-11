@@ -1,4 +1,6 @@
-var PrototypalStack = {
+var PrototypalStack = function(){};
+
+PrototypalStack.prototype = {
     last: null,
     Push : function(Content){
         this.last = { content: Content, previous:this.last };

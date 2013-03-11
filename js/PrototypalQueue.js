@@ -1,4 +1,6 @@
-var PrototypalQueue = {
+var PrototypalQueue = function(){};
+
+PrototypalQueue.prototype = {
     first: null,
     Dequeue: function(){
         if(this.first != null){
