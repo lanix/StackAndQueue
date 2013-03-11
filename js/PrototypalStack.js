@@ -1,7 +1,7 @@
 var PrototypalStack = {
     last: null,
     Push : function(Content){
-        this.last = {content: Content, previous:this.last };
+        this.last = { content: Content, previous:this.last };
         return this.last.content;
     },
     Pop : function(){
