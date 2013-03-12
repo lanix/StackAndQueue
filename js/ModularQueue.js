@@ -3,8 +3,9 @@ var ModularQueue = function(){
 
     return {
         Dequeue: function(){
+            var val = first;
+
             if(first != null){
-                var val = first;
                 first = first.next;
             }
             else{
@@ -14,12 +15,13 @@ var ModularQueue = function(){
             return val.content;
         },
         Enqueue: function(Content){
+            var nextElement = first;
+
             if(first == null){
                 first = { content: Content, next : null };
                 return first.content;
             }
             else{
-                var nextElement = first;
                 while(nextElement.next != null){
                     nextElement = nextElement.next;
                 }

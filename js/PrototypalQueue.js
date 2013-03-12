@@ -3,8 +3,9 @@ var PrototypalQueue = function(){};
 PrototypalQueue.prototype = {
     first: null,
     Dequeue: function(){
+        var val = this.first;
+
         if(this.first != null){
-            var val = this.first;
             this.first = this.first.next;
         }
         else{
@@ -14,12 +15,13 @@ PrototypalQueue.prototype = {
         return val.content;
     },
     Enqueue: function(Content){
+        var nextElement = this.first;
+
         if(this.first == null){
             this.first = { content: Content, next : null };
             return this.first.content;
         }
         else{
-            var nextElement = this.first;
             while(nextElement.next != null){
                 nextElement = nextElement.next;
             }
