@@ -42,7 +42,7 @@ var Queue = function(){
         while(currentElement != null){
             result[index] = currentElement.content;
             currentElement = currentElement.next;
-            index++;
+            index+= 1;
         }
 
         return result;

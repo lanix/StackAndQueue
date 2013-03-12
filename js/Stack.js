@@ -31,7 +31,7 @@ var Stack = function(){
         while(currentElement != null){
             result[index] = currentElement.content;
             currentElement = currentElement.previous;
-            index++;
+            index+= 1;
         }
 
         return result;
