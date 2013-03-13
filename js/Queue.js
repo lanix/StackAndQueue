@@ -1,49 +1,57 @@
-var Queue = function(){
+(function(box){ 
 
-    this.first  = null;
+    var Queue = function(){
 
-    this.Dequeue = function(){
-        var val = this.first;
-        if(this.first != null){
-            this.first = this.first.next;
-        }
-        else{
-            throw "Queue is emtpy"
-        }
-        return val.content;
-    };
+        var that = this === box ? {} : this;
+        that.first  = null;
 
-    this.Enqueue = function(Content) {
-       
-        var nextElement = this.first;
+        that.Dequeue = function(){
+            var val = that.first;
+            if(that.first != null){
+                that.first = that.first.next;
+            }
+            else{
+                throw "Queue is emtpy"
+            }
+            return val.content;
+        };
 
-        if(this.first == null){
-            this.first =  { content: Content, next : null };
-            return this.first.content;
-        }
-        else{
-              
-            while(nextElement.next != null){    
-                nextElement = nextElement.next;
+        that.Enqueue = function(Content) {
+           
+            var nextElement = that.first;
+
+            if(that.first == null){
+                that.first =  { content: Content, next : null };
+                return that.first.content;
+            }
+            else{
+                  
+                while(nextElement.next != null){    
+                    nextElement = nextElement.next;
+                }
+
+                nextElement.next =  { content: Content, next : null };
+                return nextElement.next.content;
+            }
+        };
+
+        that.Content = function(){
+
+            var result = [];
+            var currentElement = that.first;
+            var index = 0;
+
+            while(currentElement != null){
+                result[index] = currentElement.content;
+                currentElement = currentElement.next;
+                index+= 1;
             }
 
-            nextElement.next =  { content: Content, next : null };
-            return nextElement.next.content;
-        }
+            return result;
+        };
+
+        return that;
     };
 
-    this.Content = function(){
-
-        var result = [];
-        var currentElement = this.first;
-        var index = 0;
-
-        while(currentElement != null){
-            result[index] = currentElement.content;
-            currentElement = currentElement.next;
-            index+= 1;
-        }
-
-        return result;
-    };
-};
+    box.Queue = Queue;
+})(this);

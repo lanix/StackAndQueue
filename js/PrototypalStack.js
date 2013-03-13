@@ -1,4 +1,8 @@
-var PrototypalStack = function(){};
+(function(box){
+
+var PrototypalStack = function(){
+    return (this === box ? new PrototypalStack() : this);
+};
 
 PrototypalStack.prototype = {
     last: null,
@@ -32,3 +36,7 @@ PrototypalStack.prototype = {
         return result;
     }
 };
+
+    box.PrototypalStack = PrototypalStack;
+
+})(this);

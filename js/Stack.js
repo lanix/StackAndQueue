@@ -1,40 +1,48 @@
-var Stack = function(){
+(function(box){ 
 
-    this.last  = null;
+    var Stack = function(){
 
-    this.Pop = function(){
-        var val = this.last;
-        if(this.last == null){
-            throw "Stack is empty";
-        }
-        else{
-            this.last = this.last.previous;
-        }
+        var that = this === box ? {} : this;
+        that.last  = null;
 
-        return val.content;
+        that.Pop = function(){
+            var val = that.last;
+            if(that.last == null){
+                throw "Stack is empty";
+            }
+            else{
+                that.last = that.last.previous;
+            }
 
+            return val.content;
+
+        };
+            
+        that.Push = function(Content) {
+            
+            that.last = { content: Content, previous: that.last };
+
+            return that.last.content;
+        };
+
+        that.Content = function(){
+
+            var result = [];
+            var currentElement = that.last;
+            var index = 0;
+
+            while(currentElement != null){
+                result[index] = currentElement.content;
+                currentElement = currentElement.previous;
+                index+= 1;
+            }
+
+            return result;
+        };
+
+        return that;
     };
-        
-    this.Push = function(Content) {
-        
-        this.last = { content: Content, previous: this.last };
 
-        return this.last.content;
-    };
-
-    this.Content = function(){
-
-        var result = [];
-        var currentElement = this.last;
-        var index = 0;
-
-        while(currentElement != null){
-            result[index] = currentElement.content;
-            currentElement = currentElement.previous;
-            index+= 1;
-        }
-
-        return result;
-    };
-};
+    box.Stack = Stack;
+})(this);
 

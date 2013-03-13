@@ -1,45 +1,53 @@
-var PrototypalQueue = function(){};
+(function(box){
 
-PrototypalQueue.prototype = {
-    first: null,
-    Dequeue: function(){
-        var val = this.first;
+    var PrototypalQueue = function(){
+        return (this === box ? new PrototypalQueue() : this);
+    };
 
-        if(this.first != null){
-            this.first = this.first.next;
-        }
-        else{
-            throw "Queue is empty";
-        }
+    PrototypalQueue.prototype = {
+        first: null,
+        Dequeue: function(){
+            var val = this.first;
 
-        return val.content;
-    },
-    Enqueue: function(Content){
-        var nextElement = this.first;
-
-        if(this.first == null){
-            this.first = { content: Content, next : null };
-            return this.first.content;
-        }
-        else{
-            while(nextElement.next != null){
-                nextElement = nextElement.next;
+            if(this.first != null){
+                this.first = this.first.next;
             }
-            nextElement.next = { content: Content, next : null };
-            return nextElement.next.content;
-        }
-    },
-    Content: function(){
-        var result = [];
-        var currentElement = this.first;
-        var index = 0;
+            else{
+                throw "Queue is empty";
+            }
 
-        while(currentElement != null){
-            result[index] = currentElement.content;
-            currentElement = currentElement.next;
-            index+= 1;
-        }
+            return val.content;
+        },
+        Enqueue: function(Content){
+            var nextElement = this.first;
 
-        return result;
-    }
-};
+            if(this.first == null){
+                this.first = { content: Content, next : null };
+                return this.first.content;
+            }
+            else{
+                while(nextElement.next != null){
+                    nextElement = nextElement.next;
+                }
+                nextElement.next = { content: Content, next : null };
+                return nextElement.next.content;
+            }
+        },
+        Content: function(){
+            var result = [];
+            var currentElement = this.first;
+            var index = 0;
+
+            while(currentElement != null){
+                result[index] = currentElement.content;
+                currentElement = currentElement.next;
+                index+= 1;
+            }
+
+            return result;
+        }
+    };
+
+    box.PrototypalQueue = PrototypalQueue;
+
+})(this);
