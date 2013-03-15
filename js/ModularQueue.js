@@ -1,8 +1,9 @@
 var ModularQueue = function(){
+    
     var first = null;
 
     return {
-        Dequeue: function(){
+        dequeue: function(){
             var val = first;
 
             if(first != null){
@@ -14,7 +15,7 @@ var ModularQueue = function(){
 
             return val.content;
         },
-        Enqueue: function(Content){
+        enqueue: function(Content){
             var nextElement = first;
 
             if(first == null){
@@ -29,18 +30,37 @@ var ModularQueue = function(){
                 return nextElement.next.content;
             }
         },
-        Content: function(){
+        content: function(){
             var result = [];
             var currentElement = first;
-            var index = 0;
 
-            while(currentElement != null){
-                result[index] = currentElement.content;
+            while(currentElement){
+                result.push(currentElement.content);
                 currentElement = currentElement.next;
-                index += 1;
             }
 
             return result;
+        },
+        each : function(callBack){
+            
+            var currentElement = first;
+
+            if(currentElement != null){
+
+                if(typeof callBack === "function"){
+
+                    while(currentElement){
+                        callBack.call(this, currentElement.content);
+                        currentElement = currentElement.next;
+                    }
+                }
+                else{
+                    throw "Missing CallBack Function";
+                }                
+            }
+            else{
+                throw "Queue is empty";
+            }
         }
     };
 };

@@ -8,10 +8,10 @@ var UIManager = function(){
 
     this.callPush = function() {
         var $val = $('#content').val();
-        console.log('Stack Item Added: ' + myStack.Push($val));
+        console.log('Stack Item Added: ' + myStack.push($val));
         $('#list').empty();
 
-        var itemList = myStack.Content();
+        var itemList = myStack.content();
         for(var i = 0; i < itemList.length; i++){
             $('#list').append('<li>' + itemList[i] + '</li>');
         }
@@ -20,10 +20,10 @@ var UIManager = function(){
     };
 
     this.callPop = function(){
-        console.log('Stack Item Deleted: ' + myStack.Pop());
+        console.log('Stack Item Deleted: ' + myStack.pop());
         
         $('#list').empty();
-        var itemList = myStack.Content();
+        var itemList = myStack.content();
 
         for(var i = 0; i < itemList.length; i++){
             $('#list').append('<li>' + itemList[i] + '</li>');
@@ -32,10 +32,10 @@ var UIManager = function(){
 
     this.callEnqueue = function() {
         var $val = $('#content2').val();
-        console.log('Queue Item Added: ' + myQueue.Enqueue($val));
+        console.log('Queue Item Added: ' + myQueue.enqueue($val));
         $('#list2').empty();
 
-        var itemList = myQueue.Content();
+        var itemList = myQueue.content();
         for(var i = 0; i < itemList.length; i++){
             $('#list2').append('<li>' + itemList[i] + '</li>');
         }
@@ -43,10 +43,10 @@ var UIManager = function(){
     };
 
     this.callDequeue = function(){
-        console.log('Queue Item Deleted: ' + myQueue.Dequeue());
+        console.log('Queue Item Deleted: ' + myQueue.dequeue());
         
         $('#list2').empty();
-        var itemList = myQueue.Content();
+        var itemList = myQueue.content();
 
         for(var i = 0; i < itemList.length; i++){
             $('#list2').append('<li>' + itemList[i] + '</li>');
@@ -61,10 +61,10 @@ var UIManager = function(){
 
     this.callModulePush = function() {
         var $val = $('#moduleContent').val();
-        console.log('Stack Item Added: ' + myModularStack.Push($val));
+        console.log('Stack Item Added: ' + myModularStack.push($val));
         $('#moduleList').empty();
 
-        var itemList = myModularStack.Content();
+        var itemList = myModularStack.content();
         for(var i = 0; i < itemList.length; i++){
             $('#moduleList').append('<li>' + itemList[i] + '</li>');
         }
@@ -73,10 +73,10 @@ var UIManager = function(){
     };
 
     this.callModulePop = function(){
-        console.log('Stack Item Deleted: ' + myModularStack.Pop());
+        console.log('Stack Item Deleted: ' + myModularStack.pop());
         
         $('#moduleList').empty();
-        var itemList = myModularStack.Content();
+        var itemList = myModularStack.content();
 
         for(var i = 0; i < itemList.length; i++){
             $('#moduleList').append('<li>' + itemList[i] + '</li>');
@@ -85,10 +85,10 @@ var UIManager = function(){
 
     this.callModuleEnqueue = function() {
         var $val = $('#moduleContent2').val();
-        console.log('Queue Item Added: ' + myModularQueue.Enqueue($val));
+        console.log('Queue Item Added: ' + myModularQueue.enqueue($val));
         $('#moduleList2').empty();
 
-        var itemList = myModularQueue.Content();
+        var itemList = myModularQueue.content();
         for(var i = 0; i < itemList.length; i++){
             $('#moduleList2').append('<li>' + itemList[i] + '</li>');
         }
@@ -96,10 +96,10 @@ var UIManager = function(){
     };
 
     this.callModuleDequeue = function(){
-        console.log('Queue Item Deleted: ' + myModularQueue.Dequeue());
+        console.log('Queue Item Deleted: ' + myModularQueue.dequeue());
         
         $('#moduleList2').empty();
-        var itemList = myModularQueue.Content();
+        var itemList = myModularQueue.content();
 
         for(var i = 0; i < itemList.length; i++){
             $('#moduleList2').append('<li>' + itemList[i] + '</li>');
@@ -116,10 +116,10 @@ var UIManager = function(){
 
     this.callPrototypalPush = function() {
         var $val = $('#prototypalContent').val();
-        console.log('Stack Item Added: ' + myPrototypalStack.Push($val));
+        console.log('Stack Item Added: ' + myPrototypalStack.push($val));
         $('#prototypalList').empty();
 
-        var itemList = myPrototypalStack.Content();
+        var itemList = myPrototypalStack.content();
         for(var i = 0; i < itemList.length; i++){
             $('#prototypalList').append('<li>' + itemList[i] + '</li>');
         }
@@ -128,10 +128,10 @@ var UIManager = function(){
     };
 
     this.callPrototypalPop = function(){
-        console.log('Stack Item Deleted: ' + myPrototypalStack.Pop());
+        console.log('Stack Item Deleted: ' + myPrototypalStack.pop());
         
         $('#prototypalList').empty();
-        var itemList = myPrototypalStack.Content();
+        var itemList = myPrototypalStack.content();
 
         for(var i = 0; i < itemList.length; i++){
             $('#prototypalList').append('<li>' + itemList[i] + '</li>');
@@ -140,10 +140,10 @@ var UIManager = function(){
 
     this.callPrototypalEnqueue = function() {
         var $val = $('#prototypalContent2').val();
-        console.log('Queue Item Added: ' + myPrototypalQueue.Enqueue($val));
+        console.log('Queue Item Added: ' + myPrototypalQueue.enqueue($val));
         $('#prototypalList2').empty();
 
-        var itemList = myPrototypalQueue.Content();
+        var itemList = myPrototypalQueue.content();
         for(var i = 0; i < itemList.length; i++){
             $('#prototypalList2').append('<li>' + itemList[i] + '</li>');
         }
@@ -151,10 +151,10 @@ var UIManager = function(){
     };
 
     this.callPrototypalDequeue = function(){
-        console.log('Queue Item Deleted: ' + myPrototypalQueue.Dequeue());
+        console.log('Queue Item Deleted: ' + myPrototypalQueue.dequeue());
         
         $('#prototypalList2').empty();
-        var itemList = myPrototypalQueue.Content();
+        var itemList = myPrototypalQueue.content();
 
         for(var i = 0; i < itemList.length; i++){
             $('#prototypalList2').append('<li>' + itemList[i] + '</li>');

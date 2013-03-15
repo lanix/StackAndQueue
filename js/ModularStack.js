@@ -1,14 +1,13 @@
-var ModularStack =  function() {
+var ModularStack = function() {
 
     var last = null;
 
     return {
-
-        Push : function(Content){
+        push : function(Content){
             last = {content: Content, previous:last };
             return last.content;
         },
-        Pop : function(){
+        pop : function(){
             var val = last;
             if(last == null){
                 throw "Stack is empty";
@@ -19,18 +18,37 @@ var ModularStack =  function() {
 
             return val.content;
         },
-        Content : function(){
+        content : function(){
             var result = [];
             var currentElement = last;
-            var index = 0
-
-            while(currentElement != null){
-                result[index] = currentElement.content;
+         
+            while(currentElement){
+                result.push(currentElement.content);
                 currentElement = currentElement.previous;
-                index+= 1;
             }
 
             return result;
+        },
+        each : function(callBack){
+
+            var currentElement = last;
+            
+            if(currentElement != null){
+
+                if(typeof callBack === "function"){
+      
+                    while(currentElement){
+                        callBack.call(this, currentElement.content);
+                        currentElement = currentElement.previous;
+                    }
+                }
+                else{
+                    throw "Missing CallBack Function";
+                }                
+            }
+            else{
+                throw "Stack is empty";
+            }
         }
     };
 };

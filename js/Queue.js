@@ -5,7 +5,7 @@
         var that = this === box ? {} : this;
         that.first  = null;
 
-        that.Dequeue = function(){
+        that.dequeue = function(){
             var val = that.first;
             if(that.first != null){
                 that.first = that.first.next;
@@ -16,7 +16,7 @@
             return val.content;
         };
 
-        that.Enqueue = function(Content) {
+        that.enqueue = function(Content) {
            
             var nextElement = that.first;
 
@@ -35,19 +35,39 @@
             }
         };
 
-        that.Content = function(){
+        that.content = function(){
 
             var result = [];
             var currentElement = that.first;
-            var index = 0;
 
-            while(currentElement != null){
-                result[index] = currentElement.content;
+            while(currentElement){
+                result.push(currentElement.content);
                 currentElement = currentElement.next;
-                index+= 1;
             }
 
             return result;
+        };
+
+        that.each = function(callBack){
+            
+            var currentElement = this.first;
+
+            if(currentElement != null){
+
+                if(typeof callBack === "function"){
+      
+                    while(currentElement){
+                        callBack.call(this, currentElement.content);
+                        currentElement = currentElement.next;
+                    }
+                }
+                else{
+                    throw "Missing CallBack Function";
+                }                
+            }
+            else{
+                throw "Stack is empty";
+            }
         };
 
         return that;

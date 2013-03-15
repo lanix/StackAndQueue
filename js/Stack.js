@@ -5,7 +5,7 @@
         var that = this === box ? {} : this;
         that.last  = null;
 
-        that.Pop = function(){
+        that.pop = function(){
             var val = that.last;
             if(that.last == null){
                 throw "Stack is empty";
@@ -18,26 +18,46 @@
 
         };
             
-        that.Push = function(Content) {
+        that.push = function(Content) {
             
             that.last = { content: Content, previous: that.last };
 
             return that.last.content;
         };
 
-        that.Content = function(){
+        that.content = function(){
 
             var result = [];
             var currentElement = that.last;
-            var index = 0;
 
-            while(currentElement != null){
-                result[index] = currentElement.content;
+            while(currentElement){
+                result.push(currentElement.content);
                 currentElement = currentElement.previous;
-                index+= 1;
             }
 
             return result;
+        };
+
+        that.each = function(callBack){
+
+            var currentElement = this.last;
+
+            if(currentElement != null){
+
+                if(typeof callBack === "function"){
+      
+                    while(currentElement){
+                        callBack.call(this, currentElement.content);
+                        currentElement = currentElement.previous;
+                    }
+                }
+                else{
+                    throw "Missing CallBack Function";
+                }                
+            }
+            else{
+                throw "Stack is empty";
+            }
         };
 
         return that;
