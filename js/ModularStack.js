@@ -49,6 +49,12 @@ var ModularStack = function() {
             else{
                 throw "Stack is empty";
             }
+        },
+        peek : function(){
+            return last == null ? null : last.content;
+        },
+        isEmpty : function(){
+            return last == null ? true : false;
         }
     };
 };
